@@ -16,7 +16,7 @@
                 &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G         &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp PSCRN
                 &kp C_BRI_DN &kp Z  &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH &kp C_BRI_UP
                           &trans    &mo NAV    &kp ESC   &kp SPACE &mo SYM       &kp RET   &kp SPACE &kp LGUI  &trans    &mo NAV
-                                                        &kp LCTRL &kp TAB       &kp RALT  &kp BSPC
+                                                        &kp LCTRL &kp TAB       &kp BSPC  &kp RALT
             >;
         };
 
