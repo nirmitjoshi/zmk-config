@@ -9,22 +9,16 @@
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
-            bindings = <
-                // Row 0: 6 keys each side (12 total)
-                &kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp C_VOL_UP
-                // Row 1: 6 keys each side (12 total)
-                &kp DEL   &kp Q     &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P     &kp C_VOL_DN
-                // Row 2: 6 keys each side (12 total)
-                &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G         &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp PSCRN
-                // Row 3: 6 keys each side (12 total)
-                &kp C_BRI_DN &kp Z  &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH &kp C_BRI_UP
-                // Row 4: missing 4,0 and 4,11, has 4,1-4,10 (10 total)
-                          &trans    &trans    &kp ESC   &kp SPACE &mo SYM       &kp RET   &kp SPACE &kp LGUI  &trans    &trans
-                // Row 5: only 5,4 5,5 5,6 5,7 (4 total)
-                                                        &kp LCTRL &kp TAB       &kp RALT  &kp BSPC
-            >;
-        };
+				layer_0 {
+						bindings = <
+								&none     &none     &none     &none     &none     &none         &none     &none     &none     &none     &none     &none
+								&none     &none     &none     &none     &none     &none         &none     &none     &none     &none     &none     &none
+								&none     &none     &none     &none     &none     &none         &none     &none     &none     &none     &none     &none
+								&none     &none     &none     &none     &none     &none         &none     &none     &none     &none     &none     &none
+													&kp A     &kp B     &kp C     &kp D     &kp E         &kp F     &kp G     &kp H     &kp I     &kp J
+																												&kp K     &kp L         &kp M     &kp N
+						>;
+				};
 
         layer_1 { // SYM layer
             bindings = <
