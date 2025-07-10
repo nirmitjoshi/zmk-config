@@ -4,6 +4,7 @@
 
 #define LAYER_1 1
 #define LAYER_2 2
+#define LAYER_3 3
 
 / {
     behaviors {
@@ -22,24 +23,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp RSHFT>, <&kp CAPS>;
         };
-
-        // mod-morph behavior for J key: Tap for DOWN, Shift+Tap for PG_DN
-        mm_j_pgdn: mod_morph_j_pgdn {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOD_MORPH_J_PGDN";
-            #binding-cells = <0>;
-            bindings = <&kp DOWN>, <&kp PG_DN>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        // mod-morph behavior for K key: Tap for UP, Shift+Tap for PG_UP
-        mm_k_pgup: mod_morph_k_pgup {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOD_MORPH_K_PGUP";
-            #binding-cells = <0>;
-            bindings = <&kp UP>, <&kp PG_UP>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
     };
 
     keymap {
@@ -47,22 +30,22 @@
 
         default_layer {
             bindings = <
-                &kp GRAVE   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5              &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp PSCRN
-                &kp DEL     &kp Q     &kp W     &kp E     &kp R     &kp T               &kp Y     &kp U     &kp I     &kp O     &kp P     &kp C_MUTE
-                &mo LAYER_2 &kp A     &kp S     &kp D     &kp F     &kp G               &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-                &trans      &kp Z     &kp X     &kp C     &kp V     &kp B               &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RALT
-                            &kp C_BRI_DN &kp C_BRI_UP &kp ESC   &mo LAYER_1 &kp TAB     &kp SPACE  &kp BSPC &kp LGUI  &kp C_VOL_UP &kp C_VOL_DN
-                                                        &td_caps_lshift &kp LCTRL       &kp RET   &td_caps_rshift
+                &kp GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp PSCRN
+                &kp ESC   &kp Q     &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P     &kp C_MUTE
+                &kp TAB   &kp A     &kp S     &kp D     &kp F     &kp G         &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+                &kp LCTRL &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp DEL
+                          &kp C_BRI_UP &kp C_BRI_DN &kp LGUI &mo LAYER_2 &mo LAYER_3   &kp SPACE &mo LAYER_1 &kp BSPC  &kp C_VOL_DN &kp C_VOL_UP
+                                                        &td_caps_lshift &kp LALT      &kp RET   &td_caps_rshift
             >;
         };
 
         layer_1 {
             bindings = <
-                &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5        &kp F6    &kp F7     &kp F8    &kp F9    &kp F10   &kp F11
-                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &kp MINUS  &kp LPAR  &kp RPAR  &trans    &kp F12
-                &trans    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &trans    &kp EQUAL  &kp LBKT  &kp RBKT  &trans    &trans
-                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &kp BSLH   &trans    &trans    &trans    &trans
-                          &trans    &trans    &trans    &trans    &trans        &trans    &trans     &trans    &trans    &trans
+                &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5        &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
+                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &kp F12
+                &trans    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans
+                          &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
                                                         &trans    &trans        &trans    &trans
             >;
         };
@@ -70,8 +53,19 @@
         layer_2 {
             bindings = <
                 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &kp LBKT  &kp RBKT  &trans    &trans        &kp BSLH  &kp EQUAL &kp LPAR  &kp RPAR  &trans    &trans
+                &trans    &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET &kp AMPS  &kp ASTRK &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &kp MINUS &trans    &trans    &trans    &trans
+                          &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
+                                                        &trans    &trans        &trans    &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
                 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans
-                &trans    &trans    &trans    &trans    &trans    &trans        &kp LEFT  &mm_j_pgdn &mm_k_pgup &kp RIGHT &trans  &trans
+                &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans        &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
                 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans    &trans
                           &trans    &trans    &trans    &trans    &trans        &trans    &trans    &trans    &trans    &trans
                                                         &trans    &trans        &trans    &trans
