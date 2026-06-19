@@ -4,6 +4,7 @@
 
 #define LAYER_1 1
 #define LAYER_2 2
+#define LAYER_3 3
 
 / {
     behaviors {
@@ -28,36 +29,55 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
             bindings = <
                 &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5              &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp PSCRN
                 &trans          &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y           &kp U           &kp I           &kp O           &kp P           &kp C_MUTE
-                &td_caps_lshift &kp A           &kp S           &kp D           &kp F           &kp G               &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
-                &trans          &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &kp DEL
-                                &kp C_BRI_UP    &kp C_BRI_DN    &kp ESC         &mo LAYER_1     &lt LAYER_2 SPACE   &kp BSPC        &kp LGUI        &kp RALT        &kp C_VOL_DN    &kp C_VOL_UP
-                                                                &kp LCTRL       &kp TAB                             &kp RET         &td_caps_rshift
+                &td_caps_lshift &kp A           &mt LCTRL S     &mt LALT D      &kp F           &kp G               &kp H           &mt RCTRL J     &mt RALT K      &mt RSHFT L     &kp SEMI        &kp SQT
+                &trans          &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &mo LAYER_2
+                                &kp C_BRI_UP    &kp C_BRI_DN    &kp ESC         &mo LAYER_1     &lt LAYER_3 SPACE   &kp BSPC        &kp LGUI        &kp RET         &kp C_VOL_DN    &kp C_VOL_UP
+                                                                &trans          &trans                              &kp TAB         &trans
             >;
         };
 
         layer_1 {
+            display-name = "Sym";
             bindings = <
-                &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5              &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
-                &trans          &trans          &kp LBKT        &kp RBKT        &trans          &trans              &kp BSLH        &kp EQUAL       &kp LPAR        &kp RPAR        &trans          &kp F12
-                &trans          &kp N1          &kp N2          &kp N3          &kp N4          &kp N5              &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &trans
-                &trans          &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT           &kp CARET       &kp AMPS        &kp ASTRK       &kp MINUS       &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
+                &kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6              &kp F7          &kp F8          &kp F9          &kp F10         &kp F11         &kp F12
+                &trans          &kp TILDE       &kp LBKT        &kp RBKT        &kp EQUAL       &kp PLUS            &kp BSLH        &kp MINUS       &kp LBRC        &kp RBRC        &trans          &trans
+                &trans          &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT           &kp CARET       &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &trans
                                 &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans
                                                                 &trans          &trans                              &trans          &trans
             >;
         };
 
         layer_2 {
+            display-name = "Num/Sys";
             bindings = <
-                &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &trans          &trans          &trans          &trans          &trans          &trans
+                &bt BT_CLR      &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
+                &studio_unlock  &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &kp N1          &kp N2          &kp N3          &kp N4          &kp N5              &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
+                                &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans
+                                                                &trans          &trans                              &trans          &trans
+            >;
+        };
+
+        layer_3 {
+            display-name = "Nav";
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans              &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans          &trans
                                 &trans          &trans          &trans          &trans          &trans              &trans          &trans          &trans          &trans          &trans
                                                                 &trans          &trans                              &trans          &trans
             >;
+        };
+
+        extra1 {
+            status = "reserved";
         };
     };
 };
