@@ -80,8 +80,8 @@
             display-name = "NAV";
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans          &trans
+                &trans          &trans          &kp LC(W)       &kp LC(E)       &kp LC(R)       &trans            &trans          &kp LC(U)       &trans          &trans          &trans          &trans          
+                &trans          &kp LC(A)       &trans          &trans          &trans          &trans            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans          &trans          
                 &trans          &trans          &trans          &trans          &trans          &trans            &kp HOME        &kp PGDN        &kp PGUP        &kp END         &trans          &trans
                                 &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans
                                                                                 &trans          &trans            &trans          &trans
