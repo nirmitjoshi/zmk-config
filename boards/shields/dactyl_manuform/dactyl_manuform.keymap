@@ -57,8 +57,8 @@
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &kp AT          &kp HASH        &kp DLLR        &kp PRCNT         &kp CARET       &kp AMPS        &kp ASTRK       &trans          &trans          &trans
-                &kp GRAVE       &kp TILDE       &kp LBRC        &kp RBRC        &kp MINUS       &kp EQUAL         &kp PIPE        &kp UNDER       &kp LPAR        &kp RPAR        &kp COLON       &kp DQT
-                &trans          &kp DOT         &kp LT          &kp GT          &kp EXCL        &kp PLUS          &kp FSLH        &kp COMMA       &kp LBKT        &kp RBKT        &kp SEMI        &kp SQT
+                &trans          &kp TILDE       &kp LBRC        &kp RBRC        &kp MINUS       &kp EQUAL         &kp PIPE        &kp UNDER       &kp LPAR        &kp RPAR        &kp COLON       &kp DQT
+                &trans          &trans          &kp LT          &kp GT          &kp EXCL        &kp PLUS          &kp GRAVE       &kp BSLH        &kp LBKT        &kp RBKT        &kp QMARK       &trans          
                                 &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans
                                                                                 &trans          &trans            &trans          &trans
             >;
