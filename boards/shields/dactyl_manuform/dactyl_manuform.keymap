@@ -3,24 +3,27 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define BASE 0
-#define SYM  1
-#define NUM  2
-#define NAV  3
-#define MOD  4
+#define GAME 1
+#define SYM  2
+#define NUM  3
+#define NAV  4
+#define MOD  5
 
 / {
     combos {
         compatible = "zmk,combos";
-        
+
         combo_tab {
             timeout-ms = <50>;
             key-positions = <26 27>;
+            layers = <BASE>;
             bindings = <&kp TAB>;
         };
 
         combo_enter {
             timeout-ms = <50>;
             key-positions = <32 33>;
+            layers = <BASE>;
             bindings = <&kp RET>;
         };
     };
@@ -35,6 +38,13 @@
             quick-release;
             ignore-modifiers;
         };
+
+        td_game: tap_dance_game {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&none>, <&tog GAME>;
+        };
     };
 
     keymap {
@@ -45,10 +55,22 @@
             bindings = <
                 &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5            &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp PSCRN
                 &trans          &kp Q           &kp W           &kp E           &kp R           &kp T             &kp Y           &kp U           &kp I           &kp O           &kp P           &kp C_MUTE
-                &trans          &kp A           &kp S           &kp D           &kp F           &kp G             &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
+                &td_game        &kp A           &kp S           &kp D           &kp F           &kp G             &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
                 &bt BT_CLR      &kp Z           &kp X           &kp C           &kp V           &kp B             &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &trans
                                 &kp C_BRI_UP    &kp C_BRI_DN    &lt NUM ESC     &mo SYM         &lt NAV SPACE     &kp BSPC        &kp LGUI        &mo MOD         &kp C_VOL_DN    &kp C_VOL_UP
                                                                                 &kp LC(INS)     &kp CAPS          &kp DEL         &kp LS(INS)
+            >;
+        };
+
+        game_layer {
+            display-name = "GAME";
+            bindings = <
+                &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5            &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp PSCRN
+                &none           &kp TAB         &kp Q           &kp W           &kp E           &kp R             &kp Y           &kp U           &kp I           &kp O           &kp P           &kp C_MUTE
+                &td_game        &kp LSHFT       &kp A           &kp S           &kp D           &kp F             &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
+                &none           &kp LCTRL       &kp Z           &kp X           &kp C           &kp V             &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &none
+                                &kp C_BRI_UP    &kp C_BRI_DN    &kp ESC         &mo SYM         &kp SPACE         &kp BSPC        &kp LGUI        &kp RET         &kp C_VOL_DN    &kp C_VOL_UP
+                                                                                &none           &kp CAPS          &kp DEL         &kp LALT
             >;
         };
 
@@ -58,7 +80,7 @@
                 &trans          &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &kp AT          &kp HASH        &kp DLLR        &kp PRCNT         &kp CARET       &kp AMPS        &kp ASTRK       &trans          &trans          &trans
                 &trans          &kp TILDE       &kp LBRC        &kp RBRC        &kp MINUS       &kp EQUAL         &kp PIPE        &kp UNDER       &kp LPAR        &kp RPAR        &kp COLON       &kp DQT
-                &trans          &trans          &kp LT          &kp GT          &kp EXCL        &kp PLUS          &kp GRAVE       &kp BSLH        &kp LBKT        &kp RBKT        &kp QMARK       &trans          
+                &trans          &trans          &kp LT          &kp GT          &kp EXCL        &kp PLUS          &kp GRAVE       &kp BSLH        &kp LBKT        &kp RBKT        &kp QMARK       &trans
                                 &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans
                                                                                 &trans          &trans            &trans          &trans
             >;
@@ -80,8 +102,8 @@
             display-name = "NAV";
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp LC(W)       &kp LC(E)       &kp LC(R)       &trans            &trans          &kp LC(U)       &trans          &trans          &trans          &trans          
-                &trans          &kp LC(A)       &trans          &trans          &trans          &trans            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans          &trans          
+                &trans          &trans          &kp LC(W)       &kp LC(E)       &kp LC(R)       &trans            &trans          &kp LC(U)       &trans          &trans          &trans          &trans
+                &trans          &kp LC(A)       &trans          &trans          &trans          &trans            &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans            &kp HOME        &kp PGDN        &kp PGUP        &kp END         &trans          &trans
                                 &trans          &trans          &trans          &trans          &trans            &trans          &trans          &trans          &trans          &trans
                                                                                 &trans          &trans            &trans          &trans
