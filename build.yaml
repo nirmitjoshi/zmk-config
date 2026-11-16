@@ -5,3 +5,6 @@ include:
   - board: nice_nano_v2
     shield: dactyl_manuform_right
     artifact-name: dactyl_manuform_right-nice_nano_v2
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: settings_reset-nice_nano_v2
